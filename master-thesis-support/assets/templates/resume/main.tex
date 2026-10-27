@@ -1,0 +1,37 @@
+\documentclass[twocolumn]{jsarticle}
+
+\usepackage{script}
+
+% customPageStyle{発表日}{発表会}{研究室名}
+\customPageStyle{要記入：発表日}{要記入：対象年度・発表会名}{Network Information Systems Lab}
+
+% dtTitle{日本語タイトル}{英語タイトル}
+\dtTitle{要記入：日本語題目}
+{要記入：英語題目}
+
+% customAuthor{入学年度}{学籍番号}{氏名}
+\customAuthor{要記入：入学年度}{要記入：学生番号}{要記入：氏名}
+
+\begin{document}
+\maketitle
+\thispagestyle{customPageStyle}
+    
+\section{はじめに}
+\input{chapter/01-intro}
+
+\section{関連研究}
+\input{chapter/02-prev-research}
+
+\section{提案手法}
+\input{chapter/03-proposed-method}
+
+\section{評価実験}
+\input{chapter/04-experiment}
+
+\section{まとめ}
+\input{chapter/05-conclusion}
+
+\bibliographystyle{junsrt}
+\bibliography{ref}
+
+\end{document}

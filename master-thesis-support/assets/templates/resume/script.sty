@@ -1,0 +1,45 @@
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage[hang,small,bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titling}
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+\setlength{\droptitle}{-2.5em}   % タイトルの位置を上に移動
+\renewcommand{\thefootnote}{\arabic{footnote}} % フットノート
+
+% 本文と図の間の余白
+\setlength\textfloatsep{10pt}
+
+% 本文中の図の余白
+\setlength\intextsep{10pt}
+
+% タイトル
+\newcommand{\dtTitle}[2]{\title{
+    #1 \\
+    #2
+    }
+}
+
+% 著者
+\newcommand{\customAuthor}[3]{\author{
+    #1年度 #2番 #3 \\ \rule{\textwidth}{0.4pt}
+    }
+    \date{}
+}
+
+% カスタムページスタイル
+\newcommand{\customPageStyle}[3]{
+    \fancypagestyle{customPageStyle}{
+        \fancyhf{} % ヘッダーとフッターをクリア
+        \lhead{#1} % 発表日
+        \chead{#2} % 発表会
+        \rhead{#3} % 研究室名
+        \fancyfoot[C]{\thepage} % ページ番号をフッターの中央に設定
+    }
+}

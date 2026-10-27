@@ -1,0 +1,55 @@
+\documentclass[11pt, a4paper, titlepage, dvipdfmx, uplatex]{jsarticle}
+
+\usepackage{script} % スタイルシート(script.sty)の呼び出し
+
+
+\dtTitle{要記入：日本語題目}{要記入：英語題目} %\dtTitle{要記入：日本語題目}{要記入：英語題目}
+\dtAuthor{要記入：氏名}{要記入：学籍番号}{要記入：入学年} % \dtAuthor{要記入：氏名}{要記入：学籍番号}{要記入：入学年}
+\date{要記入：提出日}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{chapter/abstract}
+\end{abstract}
+
+\newpage
+
+\tableofcontents % 目次の出力
+\thispagestyle{empty}
+\newpage
+
+\setcounter{page}{1}
+\section{はじめに}
+\input{chapter/intro}
+
+\section{関連研究}
+\input{chapter/related_research}
+
+\section{評価実験}
+\input{chapter/experiment}
+
+\section{結果と考察}
+\input{chapter/result}
+
+\section{まとめ}
+\input{chapter/conclusion}
+
+\newpage
+\section*{謝辞}
+%\addcontentsline{toc}{section}{謝辞} %謝辞を目次に表示する
+\input{chapter/acknowledgments}
+\newpage
+
+\begin{onehalfspace}
+%\addcontentsline{toc}{section}{参考文献} %参考文献を目次に表示する
+\bibliographystyle{junsrt}
+\bibliography{ref}
+\newpage
+\end{onehalfspace}
+
+% 本人の研究業績を掲載する場合は、確認済みの文献と別リストを追加する。
+
+\end{document}

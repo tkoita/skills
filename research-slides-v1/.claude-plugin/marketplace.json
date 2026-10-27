@@ -1,0 +1,15 @@
+{
+  "name": "research-slides-marketplace",
+  "description": "研究発表・論文発表スライド作成プラグインの配布用マーケットプレイス",
+  "owner": {
+    "name": "Airi Kokuryo"
+  },
+  "plugins": [
+    {
+      "name": "research-slides",
+      "source": "./",
+      "description": "学会発表・論文発表・ゼミ発表用のスライドを PowerPoint（.pptx）で作成する",
+      "version": "0.4.0"
+    }
+  ]
+}

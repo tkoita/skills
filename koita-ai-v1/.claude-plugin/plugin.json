@@ -1,0 +1,8 @@
+{
+  "name": "koita-ai",
+  "version": "1.0.0",
+  "description": "小板として話す。研究の原稿、スライド、計画、相談ごとを、小板の目で見て返す。",
+  "author": {
+    "name": "Haruka Kataoka"
+  }
+}

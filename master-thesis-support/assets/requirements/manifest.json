@@ -1,0 +1,23 @@
+[
+  {
+    "original_name": "2026年度秋学期修士論文提出予定者へ.pdf",
+    "path": "2026-autumn-notice.pdf",
+    "sha256": "cb9299c6a23271bc0ac9fe72f1be565bb8c5d3bea7d5e36711764763556f91db",
+    "reviewed_at": "2026-10-21",
+    "packaged_at": "2026-10-23"
+  },
+  {
+    "original_name": "2022秋学期修士論文提出について（事務室配布）.pdf",
+    "path": "2022-autumn-common.pdf",
+    "sha256": "788a43c5c3039ed363c6fa564df1330890cada1a9bce7c91d86ad529c692e2b5",
+    "reviewed_at": "2026-10-21",
+    "packaged_at": "2026-10-23"
+  },
+  {
+    "original_name": "2022年度情報工学専攻修士論文試問会実施要領.pdf",
+    "path": "2022-autumn-ics.pdf",
+    "sha256": "e07e40f84a26a83e794ef3e0da4aafacc2e2204334a24f8f7c8bde974ede4b20",
+    "reviewed_at": "2026-10-21",
+    "packaged_at": "2026-10-23"
+  }
+]

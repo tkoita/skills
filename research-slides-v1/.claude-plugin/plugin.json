@@ -1,0 +1,17 @@
+{
+  "name": "research-slides",
+  "version": "0.4.0",
+  "description": "学会発表・論文発表・ゼミ発表用のスライドを、伝わるデザインのルールに沿って PowerPoint（.pptx）で作成するプラグイン",
+  "author": {
+    "name": "Airi Kokuryo"
+  },
+  "keywords": [
+    "presentation",
+    "slides",
+    "pptx",
+    "academic",
+    "research",
+    "学会発表",
+    "論文発表"
+  ]
+}

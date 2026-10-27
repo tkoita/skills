@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% LaTeX Template ( script.sty ) for
+% 同志社大学大学院修論
+% 作者：杉村太一(taichis.lab@gmail.com) 2023/01/13
+% 2022年度の修論執筆時に作成
+
+% プリアンブル
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+% \usepackage[japanese]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+% \usepackage{amsmath}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+% \usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{comment}
+
+% change Abstract to english
+\renewcommand{\abstractname}{Abstract}
+
+% 研究実績用の定義
+% 研究業績用multibibは必要時に追加する。
+\usepackage{setspace}
+% 研究業績リストは本人の実績を確認して追加する。
+
+% コマンド定義
+\newcommand{\dtTitle}[2]{\title{
+    修士論文
+    \vskip\baselineskip
+    #1
+    \\ #2
+    }
+}
+\newcommand{\dtAuthor}[3]{\author{
+    同志社大学大学院 理工学研究科 情報工学専攻 \\
+    #3年度 #2番
+    \\#1
+    \and
+    指導教員 \\
+    理工学研究科 情報工学専攻 \\
+    ネットワーク情報システム研究室 \\
+    要記入：指導教員
+}}
