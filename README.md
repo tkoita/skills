@@ -4,7 +4,7 @@
 
 | フォルダ | 作成者 | 内容 |
 |---|---|---|
-| [paper-review](paper-review/) | 小板 隆浩 | 論文原稿の添削（paper-review）．信学技報，情報処理学会の研究報告・シンポジウム（ComSys など），IEEE論文・国際会議，大会原稿，卒論・修論を，体裁から主張の強さまで決まった順で確認し，変更前／変更後の表で指摘する．卒業論文は研究室の卒業論文チェックシート（①書式〜⑧参考文献）の全項目も確認する．version 2.6.0．論文の添削にはこれを使う．以前のフォルダ名は koita-ai-v2 |
+| [paper-review](paper-review/) | 小板 隆浩 | 論文原稿の添削（paper-review）．信学技報，情報処理学会の研究報告・シンポジウム（ComSys など），IEEE論文・国際会議，大会原稿，卒論・修論を，体裁から主張の強さまで決まった順で確認し，変更前／変更後の表で指摘する．卒業論文は研究室の卒業論文チェックシート（①書式〜⑧参考文献）の全項目も確認する．version 2.7.0．論文の添削にはこれを使う．以前のフォルダ名は koita-ai-v2 |
 | [thesis-plan-review](thesis-plan-review/) | 小板 隆浩 | 卒業論文の研究計画書（様式1）と，既存研究との比較と新規性シート（様式2）のレビュー．本体は tkoita/Research の `.claude/skills/thesis-plan-review/` で，ここにはその写しを置いている（下の「研究計画書のレビュースキル」） |
 | [koita-persona](koita-persona/) | 片岡 悠 | 小板として話すスキル（koita-ai）．研究の原稿，スライド，計画，コード，相談ごとを，小板の目で見て返す．判断の基準（judgment.md）と話し方（voice.md）を含む．以前のフォルダ名は koita-ai-v1（スキルの名前は koita-ai のまま） |
 | [research-slides-v1](research-slides-v1/) | 國領 あい理 | 研究発表スライドの作成（research-slides）．学会・ゼミ・卒論／修論発表のスライドを pptxgenjs で .pptx と PDF に生成する．テンプレート，指針，作例を含む |
