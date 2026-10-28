@@ -51,7 +51,7 @@
 
 ## archive
 
-使わなくなったスキルを，経緯の記録として残している．入れない．
+使わなくなったスキルを，経緯の記録として残している．入れない．Drive では持ち主が別の人なので archive フォルダに移せず，skills フォルダの直下に「archive-paper-review-v1（使わない）」という名前で置いている．
 
 ### archive/paper-review-v1 にある3つの SKILL.md
 

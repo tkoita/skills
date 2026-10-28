@@ -1,6 +1,6 @@
 ---
 name: thesis-plan-review
-description: 学生の卒業論文 研究計画書（様式1）・既存研究との比較と新規性シート（様式2）をレビューし，丁寧なアドバイスとコメントを返すときに使う．「計画書見て」「様式1/様式2チェック」「卒論計画レビュー」のように頼まれたとき，または tkoita/Research の ThesisPlan 様式で書かれた Word・Markdown・PDF が渡されたときに使う．卒論本文の添削は paper-review（koita-ai-v2）を使う．
+description: 学生の卒業論文 研究計画書（様式1）・既存研究との比較と新規性シート（様式2）をレビューし，丁寧なアドバイスとコメントを返すときに使う．「計画書見て」「様式1/様式2チェック」「卒論計画レビュー」のように頼まれたとき，または tkoita/Research の ThesisPlan 様式で書かれた Word・Markdown・PDF が渡されたときに使う．卒論本文の添削は paper-review（tkoita/skills の paper-review）を使う．
 ---
 
 # 卒業論文 研究計画書のレビュー
