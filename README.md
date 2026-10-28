@@ -4,7 +4,7 @@
 
 | フォルダ | 作成者 | 内容 |
 |---|---|---|
-| [koita-ai-v2](koita-ai-v2/) | 小板 隆浩 | 論文原稿の添削（paper-review）．信学技報，IEEE論文・国際会議，大会原稿，卒論・修論を，体裁から主張の強さまで決まった順で確認し，変更前／変更後の表で指摘する．version 2.1.0．論文の添削にはこれを使う |
+| [koita-ai-v2](koita-ai-v2/) | 小板 隆浩 | 論文原稿の添削（paper-review）．信学技報，IEEE論文・国際会議，大会原稿，卒論・修論を，体裁から主張の強さまで決まった順で確認し，変更前／変更後の表で指摘する．卒業論文は研究室の卒業論文チェックシート（①書式〜⑧参考文献）の全項目も確認する．version 2.2.0．論文の添削にはこれを使う |
 | [koita-ai-v1](koita-ai-v1/) | 片岡 悠 | 小板として話すスキル（koita-ai）．研究の原稿，スライド，計画，コード，相談ごとを，小板の目で見て返す．判断の基準（judgment.md）と話し方（voice.md）を含む |
 | [paper-review-v1](paper-review-v1/) | 木村 太陽 | 論文原稿のチェック（paper-review）の初期版．SKILL.md が3つある（下の「paper-review-v1 にある3つの SKILL.md」を参照） |
 | [research-slides-v1](research-slides-v1/) | 國領 あい理 | 研究発表スライドの作成（research-slides）．学会・ゼミ・卒論／修論発表のスライドを pptxgenjs で .pptx と PDF に生成する．テンプレート，指針，作例を含む |
