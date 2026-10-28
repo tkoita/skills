@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!--
+  paper-review の最終出力テンプレート．
+  ・{{ }} の部分を置き換える．使わない節（04 チェックシートなど）は section ごと消す．
+  ・節の並びと色（class="sheet 色"）は変えない．
+  ・優先度は <span class="pri must">必須</span> ／ <span class="pri rec">推奨</span> ／ <span class="pri opt">任意</span> ／ <span class="pri ok">—</span> の4種類．
+  ・CSS は変えない（研究室のレビュー資料で見た目をそろえるため）．
+-->
+<title>{{宛先}}さんの原稿レビュー</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root{--paper:#ffffff;--ink:#0f172a;--soft:#334155;--line:#a7b1be;--line2:#c2cbd6;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);}
+body{background:#dce2e9;color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,"Meiryo",sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 80px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:#dce2e9;}
+img{max-width:100%;}
+.topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;margin:0 calc(-1 * max(16px,env(safe-area-inset-right,0px))) 24px calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:rgba(220,226,233,.95);backdrop-filter:saturate(150%) blur(10px);-webkit-backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--line2);}
+.topnav .inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:14px;height:54px;}
+.topnav .brand{font-size:12.5px;font-weight:800;color:#1C2027;white-space:nowrap;letter-spacing:.02em;}
+.topnav .brand span{display:block;font-size:10.5px;font-weight:700;color:#55606d;letter-spacing:.06em;}
+.topnav .links{display:flex;gap:3px;overflow-x:auto;flex:1;scrollbar-width:none;}
+.topnav .links::-webkit-scrollbar{display:none;}
+.topnav .links a{font-size:12px;font-weight:700;color:#334155;text-decoration:none;padding:6px 11px;border-radius:6px;white-space:nowrap;}
+.topnav .links a:hover{background:#c9d2dc;color:#0f172a;}
+.topnav .links a:focus-visible,a.ulink:focus-visible{outline:2px solid #1668B5;outline-offset:2px;}
+.sheet{scroll-margin-top:70px;max-width:960px;margin:0 auto 26px;background:var(--paper);border:1px solid var(--line);border-top:6px solid var(--accent);border-radius:6px;box-shadow:0 8px 30px rgba(20,30,45,.10);padding:40px 48px 46px;min-width:0;}
+.sheet.blue{--accent:#1668B5;--accent-deep:#0E4A82;--accentbg:#dbeafb;--accentbd:#7fb1e0;}
+.sheet.teal{--accent:#0F6B60;--accent-deep:#0b4a44;--accentbg:#e3f6f2;--accentbd:#74c8bc;}
+.sheet.amber{--accent:#c99000;--accent-deep:#4f3a00;--accentbg:#fff3cc;--accentbd:#e2b52e;}
+.sheet.slate{--accent:#334155;--accent-deep:#1e293b;--accentbg:#f1f4f8;--accentbd:#a9b6c6;}
+.sheet.indigo{--accent:#4338ca;--accent-deep:#312e81;--accentbg:#e1e4fd;--accentbd:#9ba3ef;}
+.sheet.rose{--accent:#be185d;--accent-deep:#831843;--accentbg:#fcdeec;--accentbd:#ec90bb;}
+.sheet.cover{--accent:#0f766e;--accent-deep:#0E4A82;--accentbg:#dbeafb;--accentbd:#7fb1e0;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--accent);}
+.eyebrow .no{font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:15px;}
+h1{font-size:24px;font-weight:800;margin:6px 0 14px;line-height:1.3;text-wrap:balance;}
+.sheet.cover h1{font-size:28px;}
+h2,h3{font-size:16px;font-weight:800;margin:26px 0 8px;display:flex;align-items:center;gap:10px;}
+h2::before,h3::before{content:"";flex:0 0 4px;height:18px;background:var(--accent);border-radius:2px;}
+h4{font-size:14px;margin:18px 0 6px;color:var(--accent-deep);}
+p,li{font-size:14px;} li{margin:4px 0;} ul,ol{padding-left:22px;}
+strong,b{font-weight:800;}
+.meta{margin:4px 0 18px;display:flex;gap:22px;flex-wrap:wrap;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:10px 0;font-size:12.5px;color:var(--soft);}
+.meta b{color:var(--ink);}
+.lead p{font-size:14.5px;color:#1e293b;}
+code{font-family:"SFMono-Regular",Consolas,Menlo,monospace;background:#e8edf3;border:1px solid #b8c2ce;border-radius:4px;padding:0 4px;font-size:12.5px;}
+a.ulink{color:#0E4A82;text-decoration:none;border-bottom:1px solid #5e9bd6;word-break:break-all;}
+a.ulink:hover{background:#E6F1FB;}
+.tw{overflow-x:auto;margin:12px 0;border:1px solid var(--line2);border-radius:8px;min-width:0;}
+table{border-collapse:collapse;width:100%;font-size:12.6px;line-height:1.65;background:#fff;}
+th{background:var(--accentbg);color:var(--accent-deep);font-weight:800;text-align:left;padding:8px 10px;border-bottom:2px solid var(--accentbd);white-space:nowrap;}
+td{padding:8px 10px;border-top:1px solid #dfe4ea;vertical-align:top;}
+tr:nth-child(even) td{background:#f8fafc;}
+.pri{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;border-radius:20px;padding:1px 10px;white-space:nowrap;}
+.pri.must{color:#fff;background:#c0392b;} .pri.rec{color:#1C2027;background:#e8a317;} .pri.opt{color:#334155;background:#e2e8f0;border:1px solid #a9b6c6;} .pri.ok{color:#55606d;background:#fff;border:1px dashed #a9b6c6;}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin:6px 0 4px;font-size:12.5px;color:var(--soft);}
+.box{margin:14px 0;padding:13px 16px;border-radius:8px;font-size:13.4px;line-height:1.8;}
+.box b:first-child{margin-right:8px;}
+.box.blue{background:#d9ebfb;border:1px solid #7fb1e0;border-left:6px solid #1565c0;color:#0E4A82;}
+.box.amber{background:#fff0bf;border:1px solid #e2b52e;border-left:6px solid #c99000;color:#4f3a00;}
+.figure{margin:8px 0 0;padding:16px 18px 10px;background:#fff;border:1px solid var(--line2);border-radius:8px;overflow-x:auto;min-width:0;}
+.figure svg{display:block;width:100%;height:auto;min-width:640px;}
+.figure .cap{font-size:12px;color:var(--soft);margin:8px 0 0;}
+.foot{max-width:960px;margin:0 auto;font-size:11.5px;color:#55606d;text-align:center;}
+@media (max-width:640px){.sheet{padding:28px 18px 32px;}h1{font-size:21px;}.topnav .brand{display:none;}}
+@media print{body{background:#fff;padding:0;}.topnav{display:none;}.sheet{box-shadow:none;break-inside:auto;margin-bottom:14px;}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="topnav"><div class="inner">
+  <div class="brand">{{宛先}}さんの原稿レビュー<span>小板・小比賀研究室 {{原稿の種類（例：ComSys 2026 ポスター原稿）}}</span></div>
+  <nav class="links">
+    <a href="#core">研究のコア</a><a href="#s1">よい点</a><a href="#s2">まず直す点</a><a href="#s3">項目ごと</a><a href="#s4">チェックシート</a><a href="#s5">検討して欲しいこと</a><a href="#s6">次のアクション</a><a href="#s7">参考資料</a>
+  </nav>
+</div></header>
+
+<!-- 表紙：宛先・日付・対象と，宛名から始まる短い総評（2〜3段落） -->
+<section class="sheet cover" id="top">
+  <div class="eyebrow">PAPER REVIEW</div>
+  <h1>{{原稿の題目}}</h1>
+  <div class="meta"><div><b>宛先</b> {{宛先}}さん</div><div><b>レビュー日</b> {{YYYY-MM-DD}}</div><div><b>対象</b> {{ファイル名・版・ページ数}}</div><div><b>投稿先</b> {{投稿先}}</div></div>
+  <div class="lead">
+    <p>{{宛先}}さん，</p>
+    <p>{{何を読んだか}}．研究室の論文チェックスキル（paper-review）を使ってコメントしています．</p>
+    <p>{{総評：研究の良いところを1〜2文，最優先で直すべきことを1〜2文}}</p>
+  </div>
+</section>
+
+<!-- 00 研究のコア：原稿から読み取れる提案の仕組みを1枚のSVG図にする．発表スライドの下書きに使えるように -->
+<section class="sheet teal" id="core">
+  <div class="eyebrow"><span class="no">00</span>研究のコア</div>
+  <h1>この研究のコアとなる技術・方法</h1>
+  <p>原稿をもとに，研究の中心となる仕組みを1枚の図にしました．発表スライドの図の下書きに使ってください．</p>
+  <div class="figure">
+    <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" font-family="Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" role="img"><!-- {{図}} --></svg>
+    <p class="cap">{{図の説明（1文）}}</p>
+  </div>
+</section>
+
+<!-- 01 よい点：具体的に3〜4点 -->
+<section class="sheet teal" id="s1">
+  <div class="eyebrow"><span class="no">01</span>よい点</div>
+  <h1>よくできている点</h1>
+  <ul>
+    <li><strong>{{よい点の要約}}．</strong> {{理由}}</li>
+  </ul>
+</section>
+
+<!-- 02 まず直す点：最優先の3〜5件．ここに挙げたものは表で必ず「必須」にする -->
+<section class="sheet amber" id="s2">
+  <div class="eyebrow"><span class="no">02</span>まず直す点</div>
+  <h1>まず直してほしい点</h1>
+  <ol type="1">
+    <li><strong>{{直す点の要約}}．</strong> {{理由と直し方}}（No.{{表の番号}}）</li>
+  </ol>
+</section>
+
+<!-- 03 項目ごと：SKILL.md の確認順で全指摘．最右列が優先度 -->
+<section class="sheet slate" id="s3">
+  <div class="eyebrow"><span class="no">03</span>項目ごと</div>
+  <h1>項目ごとのコメント</h1>
+  <div class="legend">
+    <span><span class="pri must">必須</span> {{N}}件</span><span><span class="pri rec">推奨</span> {{N}}件</span><span><span class="pri opt">任意</span> {{N}}件</span><span><span class="pri ok">—</span> 問題なし {{N}}件</span>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>No.</th><th>場所</th><th>確認項目</th><th>変更前</th><th>変更後（例）</th><th>理由</th><th>優先度</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>{{場所}}</td><td>{{確認項目}}</td><td>{{変更前}}</td><td>{{変更後}}</td><td>{{理由．資料名・著者・ページ}}を読んで確認すること</td><td><span class="pri must">必須</span></td></tr>
+    </tbody>
+  </table></div>
+  <p>大項目ごとの確認結果：{{1-1 用語：指摘N件／1-2 単位・数式：問題なし／…}}</p>
+  <div class="box blue"><b>参考文献について</b>{{参考文献の数・新しさ・arXivの割合へのコメント．追加候補は下に，実在と掲載先を確かめたものだけ挙げる}}</div>
+</section>
+
+<!-- 04 チェックシート：卒業論文のときだけ（3-D）．それ以外は section ごと消し，ナビのリンクも消す -->
+<section class="sheet indigo" id="s4">
+  <div class="eyebrow"><span class="no">04</span>チェックシート</div>
+  <h1>卒業論文チェックシート</h1>
+  <div class="tw"><table>
+    <thead><tr><th>番号</th><th>項目</th><th>結果</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td>①-1</td><td>だ・である調</td><td>○</td><td></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 05 検討して欲しいこと：発表の質疑で聞かれそうな問いを3〜4個 -->
+<section class="sheet blue" id="s5">
+  <div class="eyebrow"><span class="no">05</span>検討して欲しいこと</div>
+  <h1>しっかり検討して欲しいこと</h1>
+  <p>{{締切・発表日}}までに，次の問いへの答えを用意してください．</p>
+  <ol type="1">
+    <li>{{問い}}</li>
+  </ol>
+</section>
+
+<!-- 06 次のアクション：日付つき．最後は「直したら paper-review で再チェックしてから最終版を投稿」 -->
+<section class="sheet teal" id="s6">
+  <div class="eyebrow"><span class="no">06</span>次のアクション</div>
+  <h1>次のアクション</h1>
+  <ul>
+    <li><strong>{{日付}}</strong>：{{やること}}</li>
+    <li><strong>修正後</strong>：paper-review で再チェックし，残った指摘を直してから最終版を投稿する．</li>
+  </ul>
+</section>
+
+<!-- 07 参考資料：理由欄で使った資料だけ -->
+<section class="sheet slate" id="s7">
+  <div class="eyebrow"><span class="no">07</span>参考資料</div>
+  <h1>参考資料</h1>
+  <ul>
+    <li>木下：木下是雄『理科系の作文技術』（中公新書）</li>
+  </ul>
+</section>
+
+<p class="foot">このレビューは，研究室の論文チェックスキル（paper-review）を使って作成しました．</p>
+</body>
+</html>
