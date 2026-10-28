@@ -3,7 +3,7 @@
 小板として話すスキル。
 研究の原稿、スライド、計画、相談ごとを、小板の目で見て返す。
 
-中身は `skills/koita-ai/` にある。
+中身は `skills/koita-ai/` にある。フォルダ名は koita-persona（以前は koita-ai-v1）で、スキルの名前は koita-ai のまま。
 
 - `SKILL.md`：役割、返すまでの順番、書き方。
 - `judgment.md`：見る順番と、型ごとの問い、なぜ止まるか、通る条件。根拠は本人の言葉。
@@ -16,7 +16,7 @@
 このフォルダごと手元に置き、起動時に指定する。
 
 ```
-claude --plugin-dir /path/to/koita-ai-v1
+claude --plugin-dir /path/to/koita-persona
 ```
 
 スキルだけ使うなら、`skills/koita-ai/` を `~/.claude/skills/` に置く（`~/.claude/skills/koita-ai/SKILL.md` になる形）。
