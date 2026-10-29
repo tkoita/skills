@@ -38,9 +38,9 @@ description: 学生の卒業論文 研究計画書（様式1）・既存研究�
 | （松尾「見出し」） | 松尾豊「論文の書き方」（Webページ，https://ymatsuo.com/information/how-to-write-paper-jp/ ） |
 | （千葉 sldNNN） | 千葉滋「論文の書き方」（Webスライド，1997年，https://chibash.github.io/writing/ ．各スライドは https://chibash.github.io/writing/sldNNN.htm ） |
 | （新津・菊間 p.xx） | 新津善弘，菊間信良「学生，若手研究者向け論文書き方術」，通信ソサイエティマガジン（B-plus），No.4，pp.36-43，2008．https://www.jstage.jst.go.jp/article/bplus/2008/4/2008_4_4_36/_pdf/-char/ja |
-| （虎の巻 p.xx） | 山里敬也，佐波孝彦，塩田茂雄，太田能「査読の虎の巻」，通信ソサイエティマガジン（B-plus），No.23，pp.222-230，2012． |
-| （水野 p.xx） | 水野修「学生，若手研究者向けの論文の書き方術─システム開発・ソフトウェア開発論文編─」，通信ソサイエティマガジン（B-plus），No.25，pp.59-63，2013． |
-| （山崎 p.xx） | 山崎克之「論文を書こう」，通信ソサイエティマガジン（B-plus），No.27，pp.215-219，2013． |
+| （虎の巻 p.xx） | 山里敬也，佐波孝彦，塩田茂雄，太田能「査読の虎の巻」，通信ソサイエティマガジン（B-plus），No.23，pp.222-230，2012．https://www.ieice.org/~cs-edit/magazine/hp/kakikata/toranomaki.pdf |
+| （水野 p.xx） | 水野修「学生，若手研究者向けの論文の書き方術─システム開発・ソフトウェア開発論文編─」，通信ソサイエティマガジン（B-plus），No.25，pp.59-63，2013．https://www.jstage.jst.go.jp/article/bplus/7/1/7_59/_pdf |
+| （山崎 p.xx） | 山崎克之「論文を書こう」，通信ソサイエティマガジン（B-plus），No.27，pp.215-219，2013．https://www.jstage.jst.go.jp/article/bplus/7/3/7_215/_pdf/-char/ja |
 | （講座資料 p.xx） | 電子情報通信学会 通信ソサイエティ「論文の書き方講座」配布資料，https://www.ieice.org/~cs-edit/magazine/hp/kakikata/no2_txt.pdf ．ページはPDFのページ |
 
 B-plus の記事と講座資料は，電子情報通信学会 通信ソサイエティマガジンの「論文の書き方講座」（https://www.ieice.org/cs/cs-edit/magazine/paper/ ）から入手できる．
