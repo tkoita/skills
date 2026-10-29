@@ -3,12 +3,14 @@
 
 使い方：
   python3 render_review.py <review.md> <core.svg> <out.html> --name 武市さん [--date 2026-10-27] [--student]
+      [--scene scene.svg --scenecap "場面の図の説明"]
 
 - レイアウトは tkoita/Exp の配布資料（固定ナビ，用紙 .sheet，上端の色帯），
   色は tkoita/net-pages の入口ページの配色に合わせている．
 - <review.md> は SKILL.md の「出力の形」の順に，「## 見出し」で節を分けて書いたもの．
   最初の「## 」より前（宛名と導入）は，表紙の用紙に入る．
 - <core.svg> は研究のコアとなる技術・システム・方法の図（SVG）．表紙の次の用紙に入る．
+- --scene を付けると，背景・関係者・対象のイメージを描いた場面の図（SVG）を，しくみの図の前に入れる．
 - 「## 教員向けメモ」の節は，--student を付けると出力しない（学生に渡す版）．
 - Markdown から HTML への変換には pandoc を使う．
 """
@@ -19,12 +21,16 @@ ap.add_argument('md'); ap.add_argument('svg'); ap.add_argument('out')
 ap.add_argument('--name', required=True, help='宛名の名前（例：武市さん）')
 ap.add_argument('--date', default=datetime.date.today().isoformat())
 ap.add_argument('--student', action='store_true', help='教員向けメモを除く')
-ap.add_argument('--figcap', default='', help='図の説明（1〜2文）')
+ap.add_argument('--figcap', default='', help='しくみの図の説明（1〜2文）')
+ap.add_argument('--scene', default='', help='場面の図（背景・関係者・対象のイメージ）の SVG')
+ap.add_argument('--scenecap', default='', help='場面の図の説明（1〜2文）')
 a = ap.parse_args()
 
 src = open(a.md, encoding='utf-8').read()
 svg = open(a.svg, encoding='utf-8').read().strip()
 assert svg.startswith('<svg'), 'SVG ファイルは <svg で始めること'
+scene = open(a.scene, encoding='utf-8').read().strip() if a.scene else ''
+assert not scene or scene.startswith('<svg'), '場面の図の SVG ファイルは <svg で始めること'
 
 # 節に分ける
 parts = re.split(r'(?m)^## +(.+?)\s*$', src)
@@ -76,6 +82,14 @@ for i, (t, b) in enumerate(secs, 1):
 intro_h = md2html(intro.strip())
 title = f'卒業論文 研究計画書レビュー：{a.name}'
 cap = f'<p class="cap">{html.escape(a.figcap)}</p>' if a.figcap else ''
+scap = f'<p class="cap">{html.escape(a.scenecap)}</p>' if a.scenecap else ''
+if scene:
+    core_body = ('<p>計画書をもとに，研究を2枚の図にしました．1枚目は研究の背景と対象（誰が何に困っていて，何を扱うか），2枚目は研究のしくみです．計画発表のスライドや卒論の第1章・第3章の図の下書きに使ってください．</p>'
+                 f'<h2>研究の背景と対象</h2><div class="figure">{scene}{scap}</div>'
+                 f'<h2>研究のしくみ</h2><div class="figure">{svg}{cap}</div>')
+else:
+    core_body = ('<p>計画書をもとに，研究の中心となる仕組みを1枚の図にしました．計画発表のスライドや卒論の第3章の図の下書きに使ってください．</p>'
+                 f'<div class="figure">{svg}{cap}</div>')
 
 CSS = r'''
 :root{--paper:#ffffff;--ink:#0f172a;--soft:#334155;--line:#a7b1be;--line2:#c2cbd6;}
@@ -140,8 +154,7 @@ page = f'''<!doctype html>
 <div class="meta"><div><b>宛先</b> {html.escape(a.name)}</div><div><b>レビュー日</b> {html.escape(a.date)}</div><div><b>対象</b> 様式1 研究計画書／様式2 既存研究との比較と新規性</div></div>
 <div class="lead">{intro_h}</div></section>
 <section class="sheet teal" id="core"><div class="eyebrow"><span class="no">00</span>研究のコア</div><h1>この研究のコアとなる技術・方法</h1>
-<p>計画書をもとに，研究の中心となる仕組みを1枚の図にしました．計画発表のスライドや卒論の第3章の図の下書きに使ってください．</p>
-<div class="figure">{svg}{cap}</div></section>
+{core_body}</section>
 {''.join(sheets)}
 <p class="foot">このレビューは，研究室の計画書レビュー用スキル（thesis-plan-review）を使って作成しました．</p>
 </body></html>
