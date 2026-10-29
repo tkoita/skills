@@ -247,7 +247,7 @@ B-plus の記事と講座資料は，電子情報通信学会 通信ソサイエ
 - 例：門田さんのレビュー（監視映像の犯罪区間を人間とAIで比べる研究）の2枚．
 - 関係者は計画書に書かれた人だけを描く（利用者や受益者を想像で足さない）．
 - 計画書に書かれたことだけを描く．未定の部分は「（〇〇が決まれば）」と書くか，描かない．固有名（モデル名，データセット名，条件名）は計画書の表記に合わせる．
-- 形式：`<svg viewBox="0 0 900 470" ...>` で始まる単体のSVG．文字は日本語ゴシック（`font-family="Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif"`），本文12〜14px．色は tkoita/net-pages の配色を使う．
+- 形式：`<svg viewBox="…" ...>` で始まる単体のSVG（viewBox は上の目安）．文字は日本語ゴシック（`font-family="Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif"`），本文12〜14px．色は tkoita/net-pages の配色を使う．
   - 青（入力・処理）：線 `#1668B5`，地 `#dbeafb`，文字 `#0E4A82`
   - 琥珀（提案の中心）：線 `#c99000`，地 `#fff3cc`，文字 `#4f3a00`
   - 緑（出力・評価）：線 `#0F6B60`，地 `#e3f6f2`，文字 `#0b4a44`
