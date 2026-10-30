@@ -8,6 +8,7 @@
 | [thesis-plan-review](thesis-plan-review/) | 小板 隆浩 | 卒業論文の研究計画書（様式1）と，既存研究との比較と新規性シート（様式2）のレビュー．本体は tkoita/Research の `.claude/skills/thesis-plan-review/` で，ここにはその写しを置いている（下の「研究計画書のレビュースキル」） |
 | [koita-persona](koita-persona/) | 片岡 悠 | 小板として話すスキル（koita-ai）．研究の原稿，スライド，計画，コード，相談ごとを，小板の目で見て返す．判断の基準（judgment.md）と話し方（voice.md）を含む．以前のフォルダ名は koita-ai-v1（スキルの名前は koita-ai のまま） |
 | [research-slides-v1](research-slides-v1/) | 國領 あい理 | 研究発表スライドの作成（research-slides）．学会・ゼミ・卒論／修論発表のスライドを pptxgenjs で .pptx と PDF に生成する．テンプレート，指針，作例を含む |
+| [make-research-slides](make-research-slides/) | Drive の持ち主は rinbear98@gmail.com | 研究発表スライドの作成（research-slides）．Drive の make-research-slides フォルダ（2026-10-30）をそのまま置いた．中身は research-slides-v1 と同じで，SKILL.md の冒頭（name と description）が正しい形になっている．スキルの name が research-slides-v1 と同じ research-slides なので，両方は入れない |
 | [master-thesis-support](master-thesis-support/) | 北村 佳資 | 修士論文の執筆支援．同志社大学大学院 理工学研究科 情報工学専攻の修士論文本文，英文Abstract，試問会レジュメの構成・執筆・推敲・LaTeX の整備・根拠付きの点検を支援する．LaTeX のテンプレートと年度別の要領を含む |
 | [ieee-format-check](ieee-format-check/) | 杉田 雄一 | IEEE 形式の論文（IEEEtran の .tex／PDF）が，投稿先の規定・IEEEtran_HOWTO・IEEE の慣例に合うかを根拠付きで調べる．確認用スクリプト（check_paper.py）を含む |
 | [create-poster](create-poster/) | 近藤 大輔 | 学会ポスター（A0 縦）の作成ガイド |
